@@ -1,0 +1,18 @@
+<header>
+  <h3 class="logo">{{ shop.name }}</h3>
+  <ul>
+    {% for link in linklists.main-menu.links %}
+      <li>
+        {{ link.title | link_to: link.url }}</li>
+    {% endfor %}
+  </ul>
+  {% render 'mini-cart' %}
+  {% if settings.show_search %}
+    <form action="/search">
+      <input type="search" name="q">
+
+      <button type="submit">Search</button>
+
+    </form>
+  {% endif %}
+</header>

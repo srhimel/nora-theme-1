@@ -1,0 +1,30 @@
+<div style="display: grid; grid-template-columns: 1fr 2fr; gap: 40px">
+  <div>
+    <img src="{{ product.featured_image | image_url }}" alt="" style="width: 100%;">
+
+  </div>
+  <div>
+    <h1>
+      {{ product.title }}</h1>
+    <p>{{product.price | money}}</p>
+
+    <div>
+      <h2>Description</h2>
+      {{ product.description }}
+    </div>
+    {% form 'product', product %}
+      <select name="id">
+        {% for variant in product.variants %}
+          <option value="{{ variant.id }}">
+            {{ variant.title }}
+          </option>
+        {% endfor %}
+      </select>
+
+      <button type="submit">
+        Add to cart
+      </button>
+
+    {% endform %}
+  </div>
+</div>

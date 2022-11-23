@@ -1,0 +1,22 @@
+{% if search.performed %}
+  <h1>Search Result</h1>
+  {% if search.results_count == 0 %}
+    <h2>Sorry! Nothing Found!</h2>
+  {% else %}
+    {% paginate search.results by 3 %}
+
+
+
+      {% for result in search.results %}
+        <h2>
+          <a href="{{ result.url }}">
+            {{ result.title }}</a>
+        </h2>
+      {% endfor %}
+    {% endif %}
+    {{ paginate | default_pagination }}
+  {% endpaginate %}
+
+{% else %}
+  <h1>Try searching for something</h1>
+{% endif %}

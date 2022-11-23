@@ -1,0 +1,38 @@
+[
+  {
+    "theme_name": "Nora Theme 1",
+    "theme_author": "Himel",
+    "theme_documentation_url": "#",
+    "theme_support_email": "himusr@gmail.com",
+    "theme_version": "v1",
+    "name": "Khai Khai Store"
+  },
+  {
+    "name" : "Colors",
+    "settings": [
+      {
+        "type": "color",
+        "id": "bg",
+        "label": "Background Color",
+        "default" : "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "text_color",
+        "label": "Text Color",
+        "default" : "#000000"
+      }
+    ]
+  },
+  {
+    "name" : "Settings",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "show_search",
+        "label": "Show Search From",
+        "default" : true
+      }
+    ]
+  }
+]

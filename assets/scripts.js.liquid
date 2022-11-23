@@ -1,0 +1,23 @@
+// alert("{{ 'nora.js' | asset_url }}")
+const updateCart = (quantity, id, inc) => {
+  let formData = {
+    'id': `${id}`,
+    'quantity': `${
+      inc === 'inc'
+        ? quantity + 1
+        : quantity - 1
+      }`
+  };
+  fetch('/cart/change.js', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(formData)
+  }).then(response => {
+    window.location.reload();
+    return response.json();
+  }).catch((error) => {
+    console.error('Error:', error);
+  });
+}

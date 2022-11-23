@@ -1,0 +1,26 @@
+body {
+  background-color: {{ settings.bg }};
+  color: {{ settings.text_color }}}
+.logo {
+  color: white;
+  background: #000;
+  display: inline-block;
+}
+.mini-cart-container {
+  position: relative;
+}
+
+.mini-cart-container:hover .mini-cart,
+.mini-cart:hover {
+  display: block;
+}
+
+.mini-cart {
+  position: absolute;
+  width: 350px;
+  right: 0;
+  top: 100%;
+  background: #fff;
+  padding: 10px;
+  display: none;
+}

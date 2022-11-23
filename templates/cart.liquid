@@ -1,0 +1,45 @@
+{% if cart.empty?  %}
+  <h1>Cart</h1>
+  <p>Sorry Cart is empty!</p>
+
+{% else  %}
+  <h1>Cart ({{ cart.item_count }})
+  </h1>
+  {% for item in cart.items %}
+    <div style="display: flex; justify-content: space-between; margin-bottom: 20px; background-color: white;">
+      <img src="{{ item.image | image_url: width: 100 }}" alt="">
+      <h2>{{ item.title }}</h2>
+      <p>
+        {{ item.price | money }} x {{ item.quantity }}
+      </p>
+      <div>
+        <p>Subtotla: {{ item.final_line_price | money }}</p>
+        <div style="display: flex; gap: 10px; align-items: center;">
+
+          <button>
+            <a href="{{ item.url_to_remove }}">
+              x
+            </a>
+          </button>
+
+          <button onclick="updateCart({{ item.quantity }}, {{ item.id }}, 'dec')">
+            -</button>
+          {{ item.quantity }}
+          <button onclick="updateCart({{ item.quantity }}, {{ item.id }}, 'inc')">+
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  {% endfor %}
+  <div style="text-align: end">
+
+    <h2>Total: {{ cart.total_price | money }}</h2>
+    {% form 'cart', cart %}
+      <button type="submit" name="checkout">Checkout</button>
+    {% endform %}
+
+
+  {% endif %}
+</div>
